@@ -1,25 +1,31 @@
 class Solution {
       public  String longestPalindrome(String s) {
-        StringBuilder sb = new StringBuilder();
-        int n = Integer.MIN_VALUE ;
-        for(int i = 0 ; i<s.length() ; i++){
-            for(int j = i ; j<s.length() ; j++){
-                String str = s.substring(i,j+1);
-                if(isPalindrom(str)){
-                    if(n < str.length()){
-                        sb.replace(0,sb.length() , str);
-                        n = Integer.max(n,str.length());
-                        if(n == s.length()) return str;
-                    }
-                }
+        String ans = "";
+        if(s.length() <=1)return s;
+        for(int i = 1 ; i<s.length() ; i++){
+            int low = i , high = i;
+            while(s.charAt(low) == s.charAt(high)){
+                low --;
+                high++;
+                if(low == -1 || high == s.length()) break;
+            }
+            String str = s.substring(low+1 , high);
+            if(str.length()>ans.length()){
+                ans = str;
+            }
+
+            low = i-1;
+            high = i;
+            while(s.charAt(low) == s.charAt(high)){
+                low--;
+                high++;
+                if(low == -1 || high == s.length())break;
+            }
+            str = s.substring(low+1 , high);
+            if(str.length() > ans.length()){
+                ans = str;
             }
         }
-        return sb.toString();
-    }
-    public boolean isPalindrom(String sc){
-        for(int i = 0 ; i<sc.length()/2 ; i++){
-            if(sc.charAt(i) != sc.charAt(sc.length()-1-i))return false;
-        }
-        return true;
-    }
+        return ans;
+      }
 }
