@@ -5,16 +5,13 @@ class Solution {
         int ans = 0;
         while(i<j){
             if(arr[i]< arr[j]){
-                ans = Math.max(arr[i]*maxLeng-- , ans);
-                i++;
+                ans = Math.max(arr[i++]*maxLeng-- , ans);
             } else if (arr[i] == arr[j]) {
-                ans = Math.max(arr[j]*maxLeng , ans);
+                ans = Math.max(arr[j--]*maxLeng , ans);
                 i++;
-                j--;
                 maxLeng -=2;
             }else {
-                ans = Math.max(arr[j] * maxLeng--, ans);
-                j--;
+                ans = Math.max(arr[j--] * maxLeng--, ans);
             }
         }
         return ans;
