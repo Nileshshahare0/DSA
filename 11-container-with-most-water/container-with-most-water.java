@@ -3,7 +3,7 @@ class Solution {
         int maxLeng = arr.length-1;
         int i = 0, j = arr.length -1;
         int ans = 0;
-        while(i<=j){
+        while(i<j){
             if(arr[i]< arr[j]){
                 ans = Math.max(arr[i]*maxLeng-- , ans);
                 i++;
