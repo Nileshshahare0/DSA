@@ -20,11 +20,9 @@ class Solution {
 
         while(i <= mid && j<=ei){
             if(arr[i]<arr[j]){
-                num[k] = arr[i];
-                i++;
+                num[k] = arr[i++];
             }else{
-                num[k] = arr[j];
-                j++;
+                num[k] = arr[j++];
             }
             k++;
         }
