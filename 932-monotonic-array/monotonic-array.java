@@ -8,13 +8,12 @@ class Solution {
                 for(int j = i ; j<nums.length-1 ; j++){
                     if(nums[j] >nums[j+1])return false;
                 }
-                return true;
             }else{
                 for(int j = i ;j<nums.length-1 ; j++){
                     if(nums[j] < nums[j+1])return false;
                 }
-                return true;
             }
+            return true;
             }
         }
         return true;
