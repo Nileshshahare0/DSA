@@ -7,7 +7,6 @@ class Solution {
             while(!s.isEmpty() && nums2[s.peek()]<nums2[i]){
                 s.pop();
             }
-
             if(s.isEmpty()){
                 nextgreater[i] = -1;
             }else{
